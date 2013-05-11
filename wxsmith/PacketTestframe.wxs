@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxFrame" name="PacketTestFrame">
+		<title>PacketTest</title>
+		<centered>1</centered>
+		<icon>/media/DATA/Documents/Web management/imgE.jpg</icon>
+		<size>400,600</size>
+		<minsize>400,600</minsize>
+		<maxsize>400,600</maxsize>
+		<id_arg>0</id_arg>
+		<style>wxDEFAULT_FRAME_STYLE|wxFULL_REPAINT_ON_RESIZE</style>
+		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
+			<pos>80,264</pos>
+			<size>400,600</size>
+			<minsize>-1,-1</minsize>
+			<maxsize>800,600</maxsize>
+			<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
+				<label>Packet Test</label>
+				<pos>152,24</pos>
+				<font>
+					<size>12</size>
+					<style>normal</style>
+					<weight>bold</weight>
+					<underlined>0</underlined>
+					<family>swiss</family>
+					<face>Sans</face>
+				</font>
+				<style>wxALIGN_CENTRE</style>
+			</object>
+			<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
+				<label>Destination Address</label>
+				<pos>24,72</pos>
+			</object>
+			<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextDst" member="yes">
+				<pos>216,72</pos>
+				<size>160,32</size>
+			</object>
+			<object class="wxStaticText" name="ID_STATICTEXT3" variable="StaticText3" member="yes">
+				<label>Spoof Address</label>
+				<pos>24,128</pos>
+			</object>
+			<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TextSpoof" member="yes">
+				<pos>216,128</pos>
+				<size>160,32</size>
+			</object>
+			<object class="wxComboBox" name="ID_COMBOBOX1" variable="ComboProtocol" member="yes">
+				<content>
+					<item>TCP</item>
+					<item>ICMP</item>
+					<item>UDP</item>
+				</content>
+				<pos>216,176</pos>
+				<size>166,32</size>
+			</object>
+			<object class="wxStaticText" name="ID_STATICTEXT4" variable="StaticText4" member="yes">
+				<label>Protocol</label>
+				<pos>24,184</pos>
+			</object>
+			<object class="wxCheckBox" name="ID_CHECKBOX1" variable="CheckSyn" member="yes">
+				<label>Synchronous</label>
+				<pos>24,232</pos>
+				<size>144,26</size>
+			</object>
+			<object class="wxStaticText" name="ID_STATICTEXT5" variable="StaticText5" member="yes">
+				<label>Size</label>
+				<pos>24,280</pos>
+			</object>
+			<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="TextDataSize" member="yes">
+				<pos>216,272</pos>
+				<size>160,32</size>
+			</object>
+			<object class="wxStaticText" name="ID_STATICTEXT6" variable="StaticText6" member="yes">
+				<label>Data File</label>
+				<pos>24,336</pos>
+			</object>
+			<object class="wxTextCtrl" name="ID_TEXTCTRL4" variable="TextDataFile" member="yes">
+				<pos>216,336</pos>
+				<size>160,32</size>
+			</object>
+			<object class="wxButton" name="ID_BUTTON1" variable="Button1" member="yes">
+				<label>Start</label>
+				<pos>64,480</pos>
+				<handler function="OnButton1Click" entry="EVT_BUTTON" />
+			</object>
+			<object class="wxStaticText" name="ID_STATICTEXT7" variable="StaticText7" member="yes">
+				<label>Max Packets</label>
+				<pos>24,376</pos>
+				<size>88,22</size>
+			</object>
+			<object class="wxTextCtrl" name="ID_TEXTCTRL5" variable="TextMax" member="yes">
+				<pos>216,384</pos>
+				<size>144,32</size>
+			</object>
+			<object class="wxStaticText" name="ID_STATICTEXT8" variable="StaticText8" member="yes">
+				<label>Port</label>
+				<pos>224,232</pos>
+			</object>
+			<object class="wxTextCtrl" name="ID_TEXTCTRL6" variable="TextPort" member="yes">
+				<pos>272,232</pos>
+				<size>104,32</size>
+			</object>
+			<object class="wxStaticText" name="ID_STATICTEXT9" variable="StaticText9" member="yes">
+				<label>DTS</label>
+				<pos>24,432</pos>
+			</object>
+			<object class="wxTextCtrl" name="ID_TEXTCTRL7" variable="TextDts" member="yes">
+				<pos>80,432</pos>
+			</object>
+			<object class="wxCheckBox" name="ID_CHECKBOX2" variable="CheckFlood" member="yes">
+				<label>Flood Mode</label>
+				<pos>224,432</pos>
+				<tooltip>Overrides DTS and Max</tooltip>
+			</object>
+			<object class="wxButton" name="ID_BUTTON2" variable="Button2" member="yes">
+				<label>Stop</label>
+				<pos>216,480</pos>
+				<handler function="OnButton2Click" entry="EVT_BUTTON" />
+			</object>
+		</object>
+		<object class="wxMenuBar" variable="MenuBar1" member="no">
+			<object class="wxMenu" variable="Menu1" member="no">
+				<label>&amp;File</label>
+				<object class="wxMenuItem" name="idMenuQuit" variable="MenuItem1" member="no">
+					<label>Quit</label>
+					<accel>Alt-F4</accel>
+					<help>Quit the application</help>
+					<handler function="OnQuit" entry="EVT_MENU" />
+				</object>
+			</object>
+			<object class="wxMenu" variable="Menu2" member="no">
+				<label>Help</label>
+				<object class="wxMenuItem" name="idMenuAbout" variable="MenuItem2" member="no">
+					<label>About</label>
+					<accel>F1</accel>
+					<help>Show info about this application</help>
+					<handler function="OnAbout" entry="EVT_MENU" />
+				</object>
+			</object>
+		</object>
+		<object class="wxStatusBar" name="ID_STATUSBAR1" variable="StatusBar1" member="yes">
+			<fields>1</fields>
+			<widths>-1</widths>
+			<styles>wxSB_NORMAL</styles>
+		</object>
+	</object>
+</wxsmith>

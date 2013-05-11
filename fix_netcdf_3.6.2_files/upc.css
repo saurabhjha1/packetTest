@@ -1,0 +1,154 @@
+/* All browsers */
+
+@import url("jquery/base/jquery.ui.all.css");
+@import url("jquery/jquery.bt.css");
+@import url("header.css");
+@import url("footer.css");
+@import url("layout.css");
+@import url("icons.css");
+@import url("newsbox.css");
+@import url("mailinglists.css");
+@import url("roundtable.css");
+/* general style formatting */
+
+body {
+  background-color: #FFFFFF;
+  text-align: center;
+  margin: 0;
+  padding: 0; /* for Opera */
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 10pt;
+  color: #000000;
+}
+#container {
+  margin: 0 auto 0 auto;
+  width: 900px;
+  text-align: left;
+}
+a:link {
+  color: #006996;
+  text-decoration: none;
+}
+a:visited {
+  color: #0088B5;
+  text-decoration: none;
+}
+a:active {
+  color: #0088B5;
+  text-decoration: underline;
+}
+a:hover {
+  color: #0088B5;
+  text-decoration: underline;
+}
+a.more {
+  font-size: 8pt;
+  margin: 0 10px 0 0;
+  padding: 0 12px 0 0;
+  background: transparent url('/img/v3/more.png') no-repeat right 3px;
+}
+a.back {
+  font-size: 8pt;
+  margin: 0 0 12px 0;
+  padding: 0 0 12px 10px;
+  background: transparent url('/img/v3/less.png') no-repeat left 3px;
+}
+small {
+  font-size: 8pt;
+}
+h1 {
+  color: #2A5877;
+  font-weight: normal;
+  font-size: 17pt;
+  margin: 5px 0 15px 0;
+  padding: 0;
+  border-bottom: 1px solid #CCCCCC;
+}
+h2 {
+  color: #888888;
+  font-weight: normal;
+  font-size: 16pt;
+  margin: 5px 0 15px 0;
+  padding: 0;
+}
+h3 {
+  color: #888888;
+  font-weight: normal;
+  font-size: 15pt;
+  margin: 5px 0 15px 0;
+  padding: 0;
+}
+h4 {
+  color: #888888;
+  font-weight: normal;
+  font-size: 14pt;
+  margin: 5px 0 15px 0;
+  padding: 0;
+  border-bottom: 1px dotted #CCCCCC;
+}
+h5 {
+  color: #888888;
+  font-weight: normal;
+  font-size: 12pt;
+  margin: 5px 0 15px 0;
+  padding: 0;
+}
+hr {
+  height: 1px;
+  border: none;
+  border-top: 1px dotted #CCCCCC;
+}
+table.dec {
+  margin: 10px auto 10px auto;
+  border-collapse: collapse;
+  width: 100%;
+}
+.dec td {
+  font-size: 9pt;
+  margin: 10px 0 10px 0;
+  padding: 5px 20px 5px 5px;
+  vertical-align: text-top;
+}
+.dec tr {
+  border-bottom: 1px solid #CFCFCF;
+}
+.return {
+  float: right;
+  font-size: 8pt;
+  margin: 0 0px 0 0;
+  padding: 0 20px 0 0;
+  background: transparent url('/img/v3/up.png') no-repeat right 3px;
+  clear: right;
+}
+.code {
+  font-family: courier-new, monospace;
+}
+.error {
+  height: 350px;
+  background: transparent url('/img/v3/error.png') no-repeat right top;
+}
+.error h1 {
+  font-style: italic;
+  margin: 20px 0 0 0;
+  border: none;
+  font-size: 20pt;
+  background: transparent url('/img/v3/error.png') no-repeat right top;
+}
+table.simple {
+  border-collapse: collapse;
+  border: 1px solid;
+  width: auto;
+  margin: 0;
+  border-color: #CCCCCC;
+}
+table.simple td {
+  padding: 5px;
+  border: 1px solid;
+  border-color: #CCCCCC;
+}
+table.simple th {
+  padding: 5px;
+  border: 1px solid;
+  border-color: #CCCCCC;
+  background-color: #c8c8c8;
+}

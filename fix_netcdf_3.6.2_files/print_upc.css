@@ -1,0 +1,23 @@
+/* All browsers */
+
+@import url("upc.css");
+
+#breadcrumbs,
+ul.links,
+#togglemenu,
+#toggleMenu,
+div.right.software,
+div.left.slideshow,
+.nivoSlider,
+.ui-tabs-hide,
+#header #navspace,
+#header #bannerlinks,
+#header, /* for now turn entire header off */
+#footer {
+  display:none;
+}
+
+
+.left, .right {
+  width: 45%;
+}

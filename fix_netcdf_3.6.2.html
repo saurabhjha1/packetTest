@@ -1,0 +1,564 @@
+<!-- MHonArc v2.6.10 -->
+<!--X-Subject: [netCDF #STU&#45;162362]: Netcdf with intel compilers -->
+<!--X-From-R13: "Gavqngn argQRT Ehccbeg" <fhccbeg&#45;argpqsNhavqngn.hpne.rqh> -->
+<!--X-Date: Fri, 02 Jul 2010 09:10:28 &#45;0600 -->
+<!--X-Message-Id: l4xrhg.anhix6@www.unidata.ucar.edu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<title>[netCDF #STU-162362]: Netcdf with intel compilers</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <link rel="SHORTCUT ICON" href="http://www.unidata.ucar.edu/img/favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="fix_netcdf_3.6.2_files/upc.css" type="text/css" media="screen, handheld">
+   <link rel="stylesheet" href="fix_netcdf_3.6.2_files/print_upc.css" type="text/css" media="print">
+
+
+   <meta name="google-site-verification" content="-1uQ4qWE169SCZ89TolvuauHYBwWz8zL4PI_OFB9Ue0">
+
+   <script src="fix_netcdf_3.6.2_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript" src="fix_netcdf_3.6.2_files/login_cookie_detect.js"></script>
+   <script type="text/javascript" src="fix_netcdf_3.6.2_files/last_mod.js"></script>
+
+   <!-- jQuery -->
+   <script type="text/javascript" src="fix_netcdf_3.6.2_files/jquery-latest.js"></script>
+
+   <!-- site-wide jquery functions -->
+   <script type="text/javascript" src="fix_netcdf_3.6.2_files/upc.js"></script>
+
+   <!-- tool tips -->
+   <script type="text/javascript" src="fix_netcdf_3.6.2_files/jquery.js"></script>
+   <script type="text/javascript" src="fix_netcdf_3.6.2_files/tooltip.js"></script>
+
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4025628-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>        
+    <!-- unidata header -->
+    <div id="header">
+
+     <!-- banner -->
+     <div id="banner">
+
+      <div id="banner_logo">
+        <a class="noicon" href="http://www.unidata.ucar.edu/"><img src="fix_netcdf_3.6.2_files/uniLogo.png" alt="Unidata"></a>
+      </div> <!-- end banner_logo -->
+
+      <!-- banner links -->
+      <div id="bannerlinks">
+
+
+       
+       <div id="icons">
+        <a class="noicon" href="https://www.facebook.com/Unidata"><img src="fix_netcdf_3.6.2_files/facebook.png" alt="facebook"></a>
+        <a class="noicon" href="http://twitter.com/unidata"><img src="fix_netcdf_3.6.2_files/twitter.png" alt="twitter"></a>
+        <a class="noicon" href="http://www.unidata.ucar.edu/blogs/news/feed/entries/atom"><img src="fix_netcdf_3.6.2_files/rss.png" alt="RSS"></a>
+       </div> <!-- end icons -->
+
+
+       <div class="loginLinks">
+
+
+<a href="http://www.unidata.ucar.edu/account/login.jsp">Login</a> | <a href="http://www.unidata.ucar.edu/account/account.jsp">Register</a>
+
+
+
+</div>
+       <noscript>
+         <a href="/account/account.jsp">My Account</a>
+       </noscript>
+
+
+      </div> <!-- end bannerlinks -->
+
+
+      <div id="banner_title">
+       <h1><a href="http://www.unidata.ucar.edu/">Unidata</a></h1>
+      </div>
+
+
+      <div id="banner_mission">
+       providing innovative data services and tools to transform the conduct of geoscience
+      </div>
+
+     </div> <!-- end banner -->
+
+
+     <!-- horizontal navigation menu -->
+     <div id="navspace">
+
+      <ul id="nav">
+
+       <li class="top"><a href="http://www.unidata.ucar.edu/data/" id="data" class="top_link"><span class="down">Data</span></a>
+        <ul class="sub_l">
+         <li><b>Available Data Types</b></li>
+         <li><a href="http://www.unidata.ucar.edu/data/index.html#model">Forecast Model Output</a></li>
+         <li><a href="http://www.unidata.ucar.edu/data/index.html#satellite">Satellite Data</a></li>
+         <li><a href="http://www.unidata.ucar.edu/data/index.html#radar">Radar Data</a></li>
+         <li><a href="http://www.unidata.ucar.edu/data/index.html#lightning">Lightning Data</a></li>
+         <li><a href="http://www.unidata.ucar.edu/data/index.html#profiler">Wind Profiler Data</a></li>
+         <li><a href="http://www.unidata.ucar.edu/data/index.html#acars">Aircraft-Borne (ACARS)</a></li>
+         <li><a href="http://www.unidata.ucar.edu/data/index.html#suominet">GPS Meteo. Data (SuomiNet)</a></li>
+         <li><a href="http://www.unidata.ucar.edu/data/index.html#text">Textual Weather Bulletins</a></li>
+         <li><b>Data Resources</b></li>
+         <li><a href="http://www.unidata.ucar.edu/data/DataFlow.html">Data Usage Guide</a></li>
+         <li><a href="http://www.unidata.ucar.edu/software/ldm/ldm-current/basics/feedtypes/">LDM Feedtypes</a></li>
+         <li><a href="http://www.unidata.ucar.edu/software/idd/rtstats/">IDD Operational Status</a></li>
+         <li><a href="http://www.unidata.ucar.edu/data/index.html#archived">Archived Data Access</a></li>
+        </ul>
+       </li>
+
+       <li class="top"><a href="http://www.unidata.ucar.edu/software/" id="software" class="top_link"><span class="down">Software</span></a>
+        <ul class="sub">
+         <li><b>Display &amp; Analysis</b></li>
+         <li><a href="http://www.unidata.ucar.edu/software/awips2/">AWIPS II</a></li>
+         <li><a href="http://www.unidata.ucar.edu/software/gempak/">GEMPAK</a></li>
+         <li><a href="http://www.unidata.ucar.edu/software/idv/">IDV</a></li>
+         <li><a href="http://www.unidata.ucar.edu/software/mcidas">McIDAS</a></li>
+         <li><b>Data Access &amp; Management</b></li>
+         <li><a href="http://www.unidata.ucar.edu/software/ldm/">LDM</a></li>
+         <li><a href="http://www.unidata.ucar.edu/software/mcidas/mcidd/">LDM-McIDAS Decoders</a></li>
+         <li><a href="http://www.unidata.ucar.edu/software/libcf/">LibCF</a></li>
+         <li><a href="http://www.unidata.ucar.edu/software/netcdf/">NetCDF</a></li>
+         <li><a href="http://www.unidata.ucar.edu/software/decoders/">NetCDF/GRIB Decoders</a></li>
+         <li><a href="http://www.unidata.ucar.edu/software/netcdf-java/">NetCDF Java</a></li>
+         <li><a href="http://www.unidata.ucar.edu/software/netcdf-perl/">NetCDF Perl</a></li>
+         <li><a href="http://www.unidata.ucar.edu/software/ramadda/">RAMADDA</a></li>
+         <li><a href="http://www.unidata.ucar.edu/software/tds/">THREDDS Data Server</a></li>
+         <li><a href="http://www.unidata.ucar.edu/software/udunits/">UDUNITS</a></li>
+        </ul>
+       </li>
+
+       <li class="top"><a href="http://www.unidata.ucar.edu/downloads/" id="downloads" class="top_link"><span class="down">Downloads</span></a>
+        <ul class="sub">
+         <li><b>Download Software</b></li>
+         <li><a href="http://www.unidata.ucar.edu/downloads/gempak/">GEMPAK</a></li>
+         <li><a href="http://www.unidata.ucar.edu/downloads/idv/">IDV</a></li>
+         <li><a href="http://www.unidata.ucar.edu/downloads/mcidas/">McIDAS</a></li>
+         <li><a href="http://www.unidata.ucar.edu/downloads/ldm/">LDM</a></li>
+         <li><a href="http://www.unidata.ucar.edu/downloads/ldm-mcidas/">LDM-McIDAS Decoders</a></li>
+         <li><a href="http://www.unidata.ucar.edu/downloads/netcdf/">NetCDF</a></li>
+         <li><a href="http://www.unidata.ucar.edu/downloads/decoders/">NetCDF/GRIB Decoders </a></li>
+         <li><a href="http://www.unidata.ucar.edu/downloads/netcdf/">NetCDF Java</a></li>
+         <li><a href="http://www.unidata.ucar.edu/downloads/netcdf-perl/">NetCDF Perl</a></li>
+         <li><a href="http://sourceforge.net/projects/ramadda/">RAMADDA</a></li>
+         <li><a href="http://www.unidata.ucar.edu/downloads/thredds/">TDS</a></li>
+         <li><a href="http://www.unidata.ucar.edu/downloads/udunits/">UDUNITS</a></li>
+         <li><b>Terms &amp; Conditions</b></li>
+         <li><a href="http://www.unidata.ucar.edu/legal/participation.html">Provision of Software</a></li>
+        </ul>
+       </li>
+
+       <li class="top"><a href="http://www.unidata.ucar.edu/support/" id="support" class="top_link"><span class="down">Support</span></a>
+        <ul class="sub">
+         <li><b>Support Resources</b></li>
+         <li><a href="http://www.unidata.ucar.edu/support/index.html#docs">Documentation</a></li>
+         <li><a href="http://www.unidata.ucar.edu/support/index.html#training">Training Tutorials</a></li>
+         <li><a href="http://www.unidata.ucar.edu/support/index.html#mailinglists">Mailing Lists</a></li>
+         <li><a href="http://www.unidata.ucar.edu/support/index.html#archives">Support Archives</a></li>
+         <li><b>Submit a Request</b></li>
+         <li><a href="http://www.unidata.ucar.edu/support/index.html#process">Suggested Support Process</a></li>
+         <li><a href="http://www.unidata.ucar.edu/support/index.html#request">Email-Based</a></li>
+         <li><a href="http://www.unidata.ucar.edu/support/requestSupport.jsp">Web-Based</a></li>
+         <li><b>Terms &amp; Conditions</b></li>
+         <li><a href="http://www.unidata.ucar.edu/support/index.html#conditions">Obtaining Support</a></li>
+         <li><a href="http://www.unidata.ucar.edu/account/account.jsp">Register as a User</a></li>
+        </ul>
+       </li>
+
+       <li class="top"><a href="http://www.unidata.ucar.edu/community/" id="community" class="top_link"><span class="down">Community</span></a>
+        <ul class="sub">
+         <li><b>Outreach &amp; Opportunities</b></li>
+         <li><a href="http://www.unidata.ucar.edu/community/index.html#unidatanews">News from Unidata</a></li>
+         <li><a href="http://www.unidata.ucar.edu/events/">Unidata Events</a></li>
+         <li><a href="http://www.unidata.ucar.edu/community/index.html#communitynews">News from the Community</a></li>
+         <li><a href="http://www.unidata.ucar.edu/community/index.html#opportunities">Job Opportunities</a></li>
+         <li><a href="http://www.unidata.ucar.edu/community/desouza/">DeSouza Award</a></li>
+         <li><a href="http://www.unidata.ucar.edu/community/equipaward/">Equipment Awards</a></li>
+
+
+         <li><b>We Are Community Driven</b></li>
+         <li><a href="http://www.unidata.ucar.edu/community/Participating_Institutions.html">Participating Institutions</a></li>
+         <li><a href="http://www.unidata.ucar.edu/projects/">Collaborations</a></li>
+         <li><a href="http://www.unidata.ucar.edu/community/index.html#ed_resources">Education Resources</a></li>
+         <li><a href="http://www.unidata.ucar.edu/community/sitehighlight/">Software &amp; Data in Use</a></li>
+         <li><a href="http://www.unidata.ucar.edu/community/index.html#participate">How to Participate</a></li>
+
+         <li><b>Governance</b></li>
+         <li><a href="http://www.unidata.ucar.edu/committees/polcom/">Policy Committee</a></li>
+         <li><a href="http://www.unidata.ucar.edu/committees/usercom/">Users Committee</a></li>
+
+         <li><b>Publications &amp; Resources</b></li>
+         <li><a href="http://www.unidata.ucar.edu/publications/bibliography/bibliography.html">Bibliography</a></li>
+         <li><a href="http://www.unidata.ucar.edu/publications/acronyms/glossary.html">Glossary of Terms</a></li>
+        </ul>
+       </li>
+
+
+       <li class="top"><a href="http://www.unidata.ucar.edu/projects/" id="projects" class="top_link"><span class="down">Projects</span></a>
+        <ul class="sub">
+         <li><b>Current Projects</b></li>
+         <li><a href="http://www.unidata.ucar.edu/projects/index.html#cadis">CADIS</a></li>
+         <li><a href="http://www.unidata.ucar.edu/projects/index.html#casestudies">Case Studies</a></li>
+         <li><a href="http://www.unidata.ucar.edu/projects/index.html#cdm">Common Data Model</a></li>
+         <li><a href="http://www.unidata.ucar.edu/projects/index.html#conduit">CONDUIT</a></li>
+         <li><a href="http://www.unidata.ucar.edu/projects/index.html#galeon">GALEON</a></li>
+         <li><a href="http://www.unidata.ucar.edu/projects/index.html#geon">GEON IDV</a></li>
+         <li><a href="http://www.unidata.ucar.edu/projects/index.html#google">Google Africa Initiative</a></li>
+         <li><a href="http://www.unidata.ucar.edu/projects/index.html#gridpsec">GRIDSPEC</a></li>
+         <li><a href="http://www.unidata.ucar.edu/projects/index.html#hydro">HYDRO-NEXRAD</a></li>
+         <li><a href="http://www.unidata.ucar.edu/projects/index.html#idd">Internet Data Distribution</a></li>
+         <li><a href="http://www.unidata.ucar.edu/projects/index.html#mcidas-v">McIDAS-V</a></li>
+         <li><a href="http://www.unidata.ucar.edu/projects/index.html#ncmp">Data Intercomparisons</a></li>
+         <li><a href="http://www.unidata.ucar.edu/projects/index.html#ngldm">Next-Generation LDM</a></li>
+         <li><a href="http://www.unidata.ucar.edu/projects/index.html#opuls">OPULS</a></li>         
+         <li><a href="http://www.unidata.ucar.edu/projects/index.html#tc-idv">Tropical Cyclone IDV</a></li>
+        </ul>
+       </li>
+
+       <li class="top"><a href="http://www.unidata.ucar.edu/blogs/news/" id="newsmenu" class="top_link"><span class="down">News</span></a>
+        <ul class="sub">
+         <li><b>News from Unidata</b></li>
+         <li><a href="http://www.unidata.ucar.edu/blogs/news/">News from Unidata</a></li>
+         <li><a href="http://www.unidata.ucar.edu/events/">Unidata Events</a></li>
+         <li><b>News from the Community</b></li>
+         <li><a href="http://www.unidata.ucar.edu/community/index.html#communitynews">News From the Community</a></li>
+         <li><a href="http://www.unidata.ucar.edu/community/index.html#opportunities">Community Jobs</a></li>
+         <li><b>News Archives</b></li>
+         <li><a href="http://www.unidata.ucar.edu/news/archives/#eletters">Archived CommunitE-letters</a></li>
+         <li><a href="http://www.unidata.ucar.edu/news/archives/#news">Archived News Releases</a></li>
+        </ul>
+       </li>
+
+
+       <li class="top"><a href="http://www.unidata.ucar.edu/events/" id="eventsmenu" class="top_link"><span class="down">Events</span></a>
+        <ul class="sub">
+         <li style="color:blue;font-weight:bold;margin:12px 0 0 -8px;"><a href="http://www.unidata.ucar.edu/events/2012EarthCubeWorkshop/">2012 EarthCube Workshop</a></li>
+         <li><b>Unidata Events</b></li>
+         <li><a href="http://www.unidata.ucar.edu/events/">Calendar of Events</a></li>
+         <li><a href="http://www.unidata.ucar.edu/community/seminars/">Seminar Series</a></li>
+         <li><a href="http://www.unidata.ucar.edu/events/index.html#conferences">Conferences &amp; Meetings</a></li>
+         <li><b>Unidata Workshops</b></li>
+         <li><a href="http://www.unidata.ucar.edu/events/index.html#training">Training Workshops</a></li>
+         <li><a href="http://www.unidata.ucar.edu/events/index.html#triennial">Triennial Workshops</a></li>
+         <li><a href="http://www.unidata.ucar.edu/events/index.html#regional">Regional Workshops</a></li>
+         <li><a href="http://www.unidata.ucar.edu/events/index.html#datawk">Data Workshops</a></li>
+        </ul>
+       </li>
+
+       <li class="top"><a href="http://www.unidata.ucar.edu/about/" id="about" class="top_link"><span class="down">About Us</span></a>
+        <ul class="sub">
+         <li><b>The Unidata Program</b></li>
+         <li><a href="http://www.unidata.ucar.edu/about/index.html#overview">Overview of Unidata</a></li>
+         <li><a href="http://www.unidata.ucar.edu/about/index.html#reports">Highlights &amp; Reports</a></li>
+         <li><a href="http://www.unidata.ucar.edu/publications/leaflet/Leaflet.pdf">Unidata Leaflet</a></li>
+         <li><a href="http://www.unidata.ucar.edu/publications/directorspage/">Unidata Director's Page</a></li>
+         <li><b>Our Organization</b></li>
+         <li><a href="http://www.unidata.ucar.edu/about/OrgChart-Groups.pdf">Working Groups</a></li>
+         <li><a href="http://www.unidata.ucar.edu/about/OrgChart-ReportingStructure.pdf">Reporting Structure</a></li>
+         <li><a href="http://www.unidata.ucar.edu/about/index.html#staff">Staff Listing</a></li>
+         <li><b>Contact Unidata</b></li>
+         <li><a href="http://www.unidata.ucar.edu/about/index.html#contact">Contact Information</a></li>
+         <li><a href="http://www.unidata.ucar.edu/about/index.html#visit">Visit Unidata</a></li>
+        </ul>
+       </li>
+      </ul>
+
+
+      <!-- search -->
+      <div id="search">
+       <form name="google" action="/googleresults.jsp">
+        <input name="hq" value="site:www.unidata.ucar.edu" type="hidden">
+        <input name="cx" value="008424664622949020059:afj38jxaljc" type="hidden">
+        <input name="cof" value="FORID:9" type="hidden">
+        <input name="ie" value="UTF-8" type="hidden">
+        <input id="searchInput" name="q" maxlength="255" class="unidatasearch" type="text">
+        <input src="fix_netcdf_3.6.2_files/search.png" alt="Search" class="unidatasearchsubmit" type="image">
+       </form>
+
+      </div>  <!-- end search -->
+     </div> <!-- end navspace -->
+
+    </div> <!-- end header -->
+
+ 
+    <!-- page container -->
+    <div id="container">
+
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg09328.html">Date Prev</a>][<a href="http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg09330.html">Date Next</a>][<a href="http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg09325.html">Thread Prev</a>][<a href="http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg09326.html">Thread Next</a>][<a href="http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/maillist.html#09329">Date Index</a>][<a href="http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/threads.html#09329">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[netCDF #STU-162362]: Netcdf with intel compilers</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:vane_bdm@DOMAIN.HIDDEN">vane_bdm@xxxxxxxxxxxx</a></li>
+<li><em>Subject</em>: [netCDF #STU-162362]: Netcdf with intel compilers</li>
+<li><em>From</em>: "Unidata netCDF Support" &lt;<a href="mailto:support-netcdf@DOMAIN.HIDDEN">support-netcdf@xxxxxxxxxxxxxxxx</a>&gt;</li>
+<li><em>Date</em>: Fri, 02 Jul 2010 09:10:28 -0600</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Vanesa,
+
+&gt; I need this version, with version 4.1.1 I have no problems, but I need to 
+&gt; install wrf and they recommend version 3.6.2 netcdf.
+&gt; I add de include, and works well until make, when I get this...
+&gt; 
+&gt; if c++ -DHAVE_CONFIG_H -I. -I. -I../.. -I../../fortran    -I../../cxx   
+&gt; -I../../libsrc -g -O2 -MT sfc_pres_temp_rd.o -MD -MP -MF "$depbase.Tpo" -c -o 
+&gt; sfc_pres_temp_rd.o sfc_pres_temp_rd.cpp; \
+&gt; then mv -f "$depbase.Tpo" "$depbase.Po"; else rm -f "$depbase.Tpo"; exit 1; fi
+&gt; sfc_pres_temp_rd.cpp: In function âint main()â:
+&gt; sfc_pres_temp_rd.cpp:123: error: âstrlenâ was not declared in this scope
+&gt; sfc_pres_temp_rd.cpp:123: error: âstrncmpâ was not declared in this scope
+&gt; sfc_pres_temp_rd.cpp:133: error: âstrlenâ was not declared in this scope
+&gt; sfc_pres_temp_rd.cpp:133: error: âstrncmpâ was not declared in this scope
+&gt; sfc_pres_temp_rd.cpp:141: error: âstrlenâ was not declared in this scope
+&gt; sfc_pres_temp_rd.cpp:141: error: âstrncmpâ was not declared in this scope
+&gt; sfc_pres_temp_rd.cpp:149: error: âstrlenâ was not declared in this scope
+&gt; sfc_pres_temp_rd.cpp:149: error: âstrncmpâ was not declared in this scope
+&gt; make[3]: *** [sfc_pres_temp_rd.o] Error 1
+&gt; make[3]: se sale del directorio `/home/cbarca/netcdf-3.6.2/examples/CXX'
+&gt; make[2]: *** [check-am] Error 2
+&gt; make[2]: se sale del directorio `/home/cbarca/netcdf-3.6.2/examples/CXX'
+&gt; make[1]: *** [check-recursive] Error 1
+&gt; make[1]: se sale del directorio `/home/cbarca/netcdf-3.6.2/examples'
+&gt; mamples
+
+It looks like you could fix this by adding
+
+  #include &lt;cstring&gt;
+
+in the include statements at the begiining of the sfc_pres_temp_rd.cpp file.
+You will probably need to add this also to the other example files in that 
+directory to get a successful make, testing all the examples.  These problems
+were fixed in later versions.
+
+&gt; Then I tried
+&gt; $ export CXX=''
+&gt; 
+&gt; And I get the same error.
+
+After setting CXX='', you would have to run "make clean" and rerun the
+configure script, before running "make check".  Doing things in that
+order, you should not have gotten any C++ errors.  But it sounds like
+you're close to getting the C++ API and examples to work anyway, so you
+might as well finish with that approach.
+
+By the way, even though WRF recommends using version 3.6.2, I expect it would
+work fine linking against 4.1.1 also.  We know there are users using WRF with
+4.1.1 successfully ...
+
+--Russ
+
+________________________________
+&gt; De: Unidata netCDF Support &lt;support-netcdf@xxxxxxxxxxxxxxxx&gt;
+&gt; Para: vane_bdm@xxxxxxxxxxxx
+&gt; CC: support-netcdf@xxxxxxxxxxxxxxxx
+&gt; Enviado: jueves, 1 de julio, 2010 18:26:05
+&gt; Asunto: [netCDF #STU-162362]: Netcdf with intel compilers
+&gt; 
+&gt; Hi Vanesa,
+&gt; 
+&gt; &gt; HI: IÂm trying to install netcdf 3.6.2 using intel compilers.
+&gt; &gt; I follow the instructions in Building
+&gt; &gt; NetCDF* with the IntelÂ Compilers
+&gt; &gt;
+&gt; &gt; 1)
+&gt; &gt; cbarca@debian:/opt/intel/Compiler/11.1/072/bin/ia32$ source
+&gt; &gt; /opt/intel/Compiler/11.1/072/bin/ia32/iccvars_ia32.sh
+&gt; &gt; cbarca@debian:/opt/intel/Compiler/11.1/072/bin/ia32$ source
+&gt; &gt; /opt/intel/Compiler/11.1/072/bin/ia32/ifortvars_ia32.sh
+&gt; &gt;
+&gt; &gt; 2)
+&gt; &gt; $ cd &lt;work directory&gt;
+&gt; &gt; $ tar -xvzf netcdf-3.6.2.tar.gz
+&gt; &gt;
+&gt; &gt; 3)
+&gt; &gt; $ export CC=icc
+&gt; &gt; $ export CXX=icpc
+&gt; &gt; $ export CFLAGS='-O3 -xT -ip
+&gt; &gt; -no-prec-div -static'
+&gt; &gt; $ export CXXFLAGS='-O3 -xT -ip
+&gt; &gt; -no-prec-div -static'
+&gt; &gt;
+&gt; &gt; $ export F77=ifort
+&gt; &gt; $ export FC=ifort
+&gt; &gt; $ export F90=ifort
+&gt; &gt; $ export FFLAGS='-O3 -xT -ip
+&gt; &gt; -no-prec-div -static'
+&gt; &gt;
+&gt; &gt; $ export CPP='icc -E'    $ export
+&gt; &gt; CXXCPP='icpc -E'
+&gt; &gt;
+&gt; &gt; 4)sudo ./configure --prefix=/usr/local/netcdf
+&gt; &gt;
+&gt; &gt; 5) sudo make
+&gt; &gt;
+&gt; &gt; And I get this error:
+&gt; &gt;
+&gt; &gt; ncvalues.cpp: In member function 'virtual char* 
+&gt; &gt; NcValues_ncbyte::as_string(long int) const':
+&gt; &gt; ncvalues.cpp:238: error: 'strncpy' was not declared in this scope
+&gt; &gt; ncvalues.cpp: In member function 'virtual char* 
+&gt; &gt; NcValues_char::as_string(long int) const':
+&gt; &gt; ncvalues.cpp:246: error: 'strncpy' was not declared in this scope
+&gt; &gt; make[2]: *** [ncvalues.lo] Error 1
+&gt; &gt; make[1]: *** [all-recursive] Error 1
+&gt; &gt; make: *** [all] Error 2
+&gt; &gt;
+&gt; &gt; I'm missing something?
+&gt; 
+&gt; Version 3.6.2 of netCDF, from 2007, had a bug in the C++ interface,
+&gt; the file cxx/ncvalues.cpp was missing the statement
+&gt; 
+&gt; #include &lt;cstring&gt;
+&gt; 
+&gt; after
+&gt; 
+&gt; #include &lt;string&gt;
+&gt; 
+&gt; near the beginning of the file.  So one workaround would be to edit
+&gt; that file by inserting that statement, and then continue running the
+&gt; "make all check" to see if it completes successfully.
+&gt; 
+&gt; An alternative would be to just use a newer version of netCDF with
+&gt; this bug (and others) fixed.  I recommend just getting the latest
+&gt; netCDF source distribution (4.1.1) and building/installing from that.
+&gt; If you specify --disable-netcdf-4 as an option to configure, it will
+&gt; just build the netCDF-3 libraries and executables, so you won't have
+&gt; to install HDF5.  You can also specify --disable-dap if you don't
+&gt; need remote access via OPeNDAP to data on remote servers.  If you use
+&gt; version 4.1.1, you can continue to use the same flag settings you are
+&gt; using for 3.6.2.
+&gt; 
+&gt; Another alternative would be to just not build the C++ interface,
+&gt; which is not used by the other netCDF utilities such as ncdump and
+&gt; ncgen.  This is accomplished by running the configure script again
+&gt; after specifying
+&gt; 
+&gt; $ export CXX=''
+&gt; 
+&gt; along with the other settings you are using.
+&gt; 
+&gt; --Russ
+&gt; 
+&gt; Russ Rew                                         UCAR Unidata Program
+&gt; russ@xxxxxxxxxxxxxxxx                      <a href="http://www.unidata.ucar.edu/">http://www.unidata.ucar.edu</a>
+&gt; 
+&gt; 
+&gt; 
+&gt; Ticket Details
+&gt; ===================
+&gt; Ticket ID: STU-162362
+&gt; Department: Support netCDF
+&gt; Priority: Normal
+&gt; Status: Closed
+&gt; 
+&gt; 
+&gt; 
+&gt; 
+
+Russ Rew                                         UCAR Unidata Program
+russ@xxxxxxxxxxxxxxxx                      <a href="http://www.unidata.ucar.edu/">http://www.unidata.ucar.edu</a>
+
+
+
+Ticket Details
+===================
+Ticket ID: STU-162362
+Department: Support netCDF
+Priority: Normal
+Status: Closed
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg09328.html">[netCDF #FEE-497418]: NCIO_MAXBLOCKSIZE bug</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg09330.html">[netCDF #UDV-137150]: NetCDF 4.1.1: "ncdump -c" gives error, whereas "ncdump" doesn't</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg09325.html">[netCDF #STU-162362]: Netcdf with intel compilers</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg09326.html">[netCDF #KBW-739228]: Windows 64-bit</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/maillist.html#09329"><strong>Date</strong></a></li>
+<li><a href="http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/threads.html#09329"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+    </div> <!-- end container -->
+    
+    <!-- unidata footer -->
+    <div id="footer"> 
+     <div id="bottom_navspace">
+      <ul id="leftfootermenu">
+       <li> <a href="http://www.unidata.ucar.edu/about/index.html#contact">Contact Us</a></li>
+      </ul>
+
+      <ul id="rightfootermenu">
+       <li> <a href="http://www2.ucar.edu/terms-of-use">Terms of Use</a></li>
+       <li> <a href="http://www2.ucar.edu/privacy-policy">Privacy Policy</a></li>
+       <li> <a href="http://www.unidata.ucar.edu/legal/participation.html">Participation Policy</a></li>
+      </ul>
+     </div> <!-- end bottom_navspace -->
+
+     <div id="affil">
+      <div id="logos">
+       <a class="noicon" href="http://www.ucp.ucar.edu/"><img src="fix_netcdf_3.6.2_files/ucp.gif" alt="UCP"></a>
+       <a class="noicon" href="http://www.nsf.gov/"><img src="fix_netcdf_3.6.2_files/nsf.gif" alt="NSF"></a>
+      </div> <!-- end logos -->
+      <div id="affilText">
+       The <a href="http://www.unidata.ucar.edu/">Unidata Program Center</a> is a member of the <a href="http://www.ucp.ucar.edu/">UCAR Community Programs</a>, is managed by the <a href="http://www.ucar.edu/">University Corporation for Atmospheric Research</a>, and is funded by the <a href="http://www.nsf.gov/">National Science Foundation</a>.
+      </div> <!-- end text -->
+     </div> <!-- end affil -->
+
+    </div> <!-- end footer -->
+
+
+
+
+
+
+
+
+
+</body></html>
